@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3" id="Tron">News Scraper</h1>
+        <p class="lead" id="TronMini">New York Times Edition</p>
+    </div>
+</div>
+<div class='articles'>
+    {{#unless data.length}}
+    <div class="alert alert-warning" role="alert">
+        <p style="text-align: center;"><strong>Uh Oh!</strong> It doesn't look like you have any new articles</p>
+    </div>
+    {{/unless}}
+    {{#if data.length}}
+    {{#each data}}
+    <div class="card" id="CARD" style="width: 1200px">
+        <p>{{title}}</p>
+        <p>{{link}}</p>
+        <p>{{summary}}</p>
+        <div id="btns">
+            <button class="saved" onClick="saveArticle.call(this)" data-value={{_id}}>Save This Article</button>        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+</div>
